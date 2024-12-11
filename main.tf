@@ -12,17 +12,6 @@ resource "aws_iam_account_alias" "alias" {
   account_alias = var.account_alias
 }
 
-module "bootstrap" {
-  source = "trussworks/bootstrap/aws"
-
-  region        = "us-west-2"
-  account_alias = "myorg-dev"
-  account_id    = "161574581192"
-  account_name  = "Sandbox"
-  email         = "kenbow1967@gmail.com"
-  ou            = "Development"
-}
-
 module "terraform_state_bucket" {
   source  = "trussworks/s3-private-bucket/aws"
   version = "~> 7.1.0"
